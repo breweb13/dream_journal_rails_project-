@@ -5,7 +5,7 @@ class CreateDreams < ActiveRecord::Migration[6.1]
       t.datetime :date
       t.text :dream
       t.text :reflections
-      t.string :dreamjournal.id
+      t.integer :dreamjournals_id
 
       t.timestamps
     end
