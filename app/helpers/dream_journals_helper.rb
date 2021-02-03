@@ -1,0 +1,2 @@
+module DreamJournalsHelper
+end

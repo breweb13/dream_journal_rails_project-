@@ -1,0 +1,2 @@
+class DreamJournal < ApplicationRecord
+end

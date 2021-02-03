@@ -1,0 +1,2 @@
+class DreamJournalsController < ApplicationController
+end
