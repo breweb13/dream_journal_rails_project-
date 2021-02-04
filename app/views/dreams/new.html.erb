@@ -1,1 +1,22 @@
 <h1> Create New Dream </h1>
+
+<%= form_for @dream do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :dream %>
+    <%= f.text_field :dream %>
+  </div>
+  <div>
+    <%= f.label :reflections %>
+    <%= f.text_field :reflections %>
+  </div>
+  <div>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+  </div>
+
+  <%= f.submit "New Dream" %>
+<% end %>
