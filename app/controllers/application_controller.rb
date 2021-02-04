@@ -13,15 +13,6 @@ class ApplicationController < ActionController::Base
   def redirect_if_logged_in
       redirect_to user_path(current_user) if logged_in?
   end
-
-  def find_dreamjournal
-    @dreamjournal = DreamJournal.find(params[:id])
-end
-
-def find_dream
-    @dream = Dream.find(params[:id])
-end
  
-  end
 
 end

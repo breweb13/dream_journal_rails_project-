@@ -48,5 +48,8 @@ class DreamsController < ApplicationController
     params.require(:dream).permit(:name, :date, :dream, :reflections, :dreamjournals_id)
   end
 
+  def find_dream
+    @dream = Dream.find_by_id(params[:id])
+end
 
 end

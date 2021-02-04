@@ -6,7 +6,7 @@ class DreamJournalsController < ApplicationController
 
   def show
     if !find_dreamjournal
-      redirect_to dreamjournal_path
+      redirect_to dreamjournals_path
     else
       find_dreamjournal
     end
@@ -48,5 +48,9 @@ class DreamJournalsController < ApplicationController
   def dream_journal_params
     params.require(:dreamjournal).permit(:title, :user_id )
   end
+
+  def find_dreamjournal
+    @dreamjournal = DreamJournal.find_by_id(params[:id])
+end
 
 end
