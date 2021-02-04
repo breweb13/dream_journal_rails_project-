@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'sessions#welcome'
   resources :dreams #7 RESTful routes
   resources :dream_journals
   resources :users
