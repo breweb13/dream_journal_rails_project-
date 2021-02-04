@@ -5,7 +5,11 @@ class DreamJournalsController < ApplicationController
   end
 
   def show
-    @dreamjournal = Dreamjournal.find(params[:id])
+    if !find_dreamjournal
+      redirect_to dreamjournal_path
+    else
+      find_dreamjournal
+    end
   end
 
   def new
@@ -16,21 +20,21 @@ class DreamJournalsController < ApplicationController
     @dreamjournal = Dreamjournal.new(dreamjournal_params)
 
     if @dreamjournal.save
-      redirect_to @dreamjournal
+      redirect_to dreamjournal_path(@dreamjournal)
     else 
       render:new
     end
   end
 
   def edit
-    @dreamjournal = @dreamjournal.find(params[:id])
+    find_dreamjournal
   end
 
   def update
-    @dreamjournal = Dreamjournal.find(params[:id])
-  
-    if @dreamjournal.update(dream_journal_params)
-      redirect_to @dreamjournal
+    find_dreamjournal
+    @dreamjournal.update(dream_journal_params)
+    if @dreamjournal.valid?
+      redirect_to dreamjournal_path
     else
       render :edit
     end

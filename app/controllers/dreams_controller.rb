@@ -10,7 +10,7 @@ class DreamsController < ApplicationController
   end
 
   def show
-    @dream = Dream.findby(id params[:id])
+    find_dream
   end
 
   def create
@@ -23,22 +23,23 @@ class DreamsController < ApplicationController
   end
 
   def edit
-    @dream = Dream.find(params[:id])
+    find_dream
   end
 
   def update
-    @dream = Dream.find(params[:id])
-
-    if @dream.update(dreams_params)
-      redirect_to @dream
+    find_dream
+    @dream.update(dreams_params)
+    if @dream.valid?
+      redirect_to dreams_path
     else
       render :edit
     end
   end
 
   def destoy
-    @dream = Dream.find(params[:id])
+    find_dream
     @dream.destroy
+    redirect_to dreams_path
   end
 
   private
