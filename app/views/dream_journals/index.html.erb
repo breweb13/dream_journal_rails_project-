@@ -1,1 +1,6 @@
 <h1> Show all Dream Journals </h1>
+
+
+<% @dreamjournals.each do |dreamjournal| %>
+<%= link_to dreamjournal.title, dreamjournal_path(dreamjournal)%> 
+<% end %>
