@@ -3,9 +3,9 @@ class CreateDreams < ActiveRecord::Migration[6.1]
     create_table :dreams do |t|
       t.string :name
       t.datetime :date
-      t.text :dream
+      t.text :description
       t.text :reflections
-      t.integer :dreamjournals_id
+      t.integer :dream_journals_id
 
       t.timestamps
     end
