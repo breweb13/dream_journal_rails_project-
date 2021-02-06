@@ -1,2 +1,8 @@
 <h1> Create New Dream Journal </h1>
 
+
+<%= form_for @dreamjournal do |f| %>
+<%= render partial: "form", locals: { in_the_partial: f } %>
+
+  <%= f.submit "New Journal" %>
+<% end %>

@@ -1,1 +1,11 @@
 <h1> Edit Dream Journal </h1>
+
+
+<%= form_for @dreamjournal do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <%= f.submit "New Journal" %>
+<% end %>

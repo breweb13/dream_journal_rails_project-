@@ -1,11 +1,22 @@
 <h1> Edit Dream </h1>
 
-<h1><%= @dream.name %></h1>
-<p>Dream: <%= @dream.dream %></p>
-<p>Reflections: <%= @dream.reflections %></p>
-<p>Date: <%= @dream.date %></p>
+<%= form_for @dream do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div>
+    <%= f.label :reflections %>
+    <%= f.text_field :reflections %>
+  </div>
+  <div>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+  </div>
 
-
-<%= link_to "Edit", edit_dream_path(@dream) %>
-
-<%= link_to "Delete", dream_path(@dream), method: "delete" %>
+  <%= f.submit "Edit Dream" %>
+<% end %>
