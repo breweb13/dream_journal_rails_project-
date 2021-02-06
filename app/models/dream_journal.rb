@@ -1,4 +1,4 @@
 class DreamJournal < ApplicationRecord
-  belongs_to :user
   has_many :dreams
+  belongs_to :user
 end

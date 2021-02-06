@@ -6,7 +6,7 @@ class DreamJournalsController < ApplicationController
 
   def show
     if !find_dreamjournal
-      redirect_to dreamjournals_path
+      redirect_to dream_journals_path
     else
       find_dreamjournal
     end
@@ -17,10 +17,10 @@ class DreamJournalsController < ApplicationController
   end
 
   def create
-    @dreamjournal = Dreamjournal.new(dreamjournal_params)
+    @dreamjournal = DreamJournal.new(dream_journal_params)
 
     if @dreamjournal.save
-      redirect_to dreamjournal_path(@dreamjournal)
+      redirect_to dream_journal_path(@dreamjournal)
     else 
       render:new
     end
@@ -34,7 +34,7 @@ class DreamJournalsController < ApplicationController
     find_dreamjournal
     @dreamjournal.update(dream_journal_params)
     if @dreamjournal.valid?
-      redirect_to dreamjournal_path
+      redirect_to dream_journal_path
     else
       render :edit
     end
@@ -46,7 +46,7 @@ class DreamJournalsController < ApplicationController
   private
   
   def dream_journal_params
-    params.require(:dreamjournal).permit(:title, :user_id )
+    params.require(:dream_journal).permit(:title, :user_id )
   end
 
   def find_dreamjournal

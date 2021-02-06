@@ -1,8 +1,11 @@
 class DreamsController < ApplicationController
 
+  before_action :find_dream, only: [:show]
+
 
   def index
     @dreams = Dream.all
+    #binding.pry 
   end
 
   def new
@@ -10,13 +13,12 @@ class DreamsController < ApplicationController
   end
 
   def show
-    find_dream
   end
 
   def create
     @dream = Dream.new(dreams_params)
     if @dream.save
-      redirect_to @dream
+      redirect_to dreams_path
     else
       render :new
     end
@@ -45,11 +47,11 @@ class DreamsController < ApplicationController
   private
 
   def dreams_params
-    params.require(:dream).permit(:name, :date, :dream, :reflections, :dreamjournals_id)
+    params.require(:dream).permit(:name, :date, :description, :reflections, :dreamjournals_id)
   end
 
   def find_dream
-    @dream = Dream.find_by_id(params[:id])
+    @dream = Dream.find(params[:id])
 end
 
 end
