@@ -1,0 +1,29 @@
+
+<%= form_for [@dreamjournal, @dream] do |f| %>
+ 
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+
+    <%= f.label :reflections %>
+    <%= f.text_field :reflections %>
+
+
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+
+<h3> Select a dreamjournal: </h3>
+<%= f.collection_select :dream_journals_id, DreamJournal.all, :id, :title, include_blank: "Select From List" %>
+
+  <%= f.submit "New Dream" %>
+
+ 
+<% end %>
+<br><br>
+ <script>
+  $(document).ready(function(){
+    $('select').formSelect();
+  });
+ </script>

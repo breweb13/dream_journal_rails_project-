@@ -17,12 +17,13 @@ class DreamJournalsController < ApplicationController
   end
 
   def create
+    params[:dream_journal][:user_id] = current_user.id
     @dreamjournal = DreamJournal.new(dream_journal_params)
 
     if @dreamjournal.save
       redirect_to dream_journal_path(@dreamjournal)
     else 
-      render:new
+      render :new
     end
   end
 
@@ -40,13 +41,26 @@ class DreamJournalsController < ApplicationController
     end
   end
 
+  def most_recent
+    @dreamjournals = DreamJournal.most_recent_dream_journal
+    render :index
+end
+
   def destroy
+    find_dreamjournal
+        if current_user.id != @dreamjournal.user_id
+            redirect_to dream_journal_path
+        else 
+            @dreamjournal.destroy 
+            redirect_to dream_journal_path
+        end
+
   end
 
   private
   
   def dream_journal_params
-    params.require(:dream_journal).permit(:title, :user_id , dreams_attributes: [:name, :date, :description, :reflections])
+    params.require(:dream_journal).permit(:title, :user_id , dreams_attributes: [:name, :date, :description, :reflections], feelings_attributes: [:type, :description])
   end
 
   def find_dreamjournal

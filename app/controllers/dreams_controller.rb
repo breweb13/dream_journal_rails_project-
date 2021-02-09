@@ -1,6 +1,6 @@
 class DreamsController < ApplicationController
 
-  before_action :find_dream, only: [:show]
+  #before_action :find_dream, only: [:show]
 
 
   def index
@@ -9,19 +9,32 @@ class DreamsController < ApplicationController
   end
 
   def new
-    @dream = Dream.new
+    if params[:dream_journal_id] && @dreamjournal = DreamJournal.find(params[:dream_journal_id])
+      @dream = Dream.new(dream_journal_id: params[:dream_journal_id])
+   else
+      @dream = Dream.new
+   end
   end
 
   def show
+    if !find_dream
+      redirect_to dreams_path
+    else
+      find_dream
+    end
   end
 
   def create
-    @dream = Dream.new(dreams_params)
-    if @dream.save
-      redirect_to dreams_path
-    else
-      render :new
-    end
+    @dream =Dream.new(dreams_params)
+        if params[:dream_journal_id]
+            @dream = DreamJournal.find(params[:dream_journal_id])
+        end
+        if @dream.save
+          binding.pry
+            redirect_to dreams_path
+        else
+             render :new
+        end
   end
 
   def edit
@@ -47,7 +60,7 @@ class DreamsController < ApplicationController
   private
 
   def dreams_params
-    params.require(:dream).permit(:name, :date, :description, :reflections, :dreamjournals_id, dream_journal_attributes: [:title])
+    params.require(:dream).permit(:name, :date, :description, :reflections, :dream_journals_id, dream_journal_attributes: [:title, :user_id])
   end
 
   def find_dream
