@@ -1,3 +1,5 @@
+<%= in_the_partial.collection_select :feeling, Feeling.all, :id, :title, include_blank: "Select From List" %>
+
 <%= in_the_partial.label (:title) %>
     <%= in_the_partial.text_field :title %>
     <%= in_the_partial.hidden_field :user_id, value: current_user.id%>

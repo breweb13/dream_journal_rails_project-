@@ -1,10 +1,10 @@
 
 <h1><%= @dream.name %></h1>
-<p>Dream: <%= @dream.dream %></p>
+<p>Description: <%= @dream.description %></p>
 <p>Reflections: <%= @dream.reflections %></p>
 <p>Date: <%= @dream.date %></p>
 
 
 <%= link_to "Edit", edit_dream_path(@dream) %>
 
-<%= link_to "Delete", dream_path(@dream), method: "DELETE" %>
+<%= link_to "Delete", dream_path(@dream), method: :delete %>

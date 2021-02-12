@@ -44,7 +44,7 @@ class FeelingsController < ApplicationController
   private
 
   def feelings_params
-    params.require(:feeling).permit(:type, :description, :dream_journals_id, dream_journal_attributes: [:title, :user_id])
+    params.require(:feeling).permit(:type, :description)
   end
 
   def find_feeling

@@ -15,7 +15,7 @@
     <%= f.date_field :date %>
 
 <h3> Select a dreamjournal: </h3>
-<%= f.collection_select :dream_journals_id, DreamJournal.all, :id, :title, include_blank: "Select From List" %>
+<%= f.collection_select :dream_journal_id, DreamJournal.all, :id, :title, include_blank: "Select From List" %>
 
   <%= f.submit "New Dream" %>
 

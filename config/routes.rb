@@ -1,11 +1,22 @@
 Rails.application.routes.draw do
   
   root to: 'sessions#welcome'
+  
+
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+
+  delete '/logout', to: 'sessions#destroy'
+ 
+
+  get '/signup', to: 'users#new', as: "signup"
+  post '/signup', to: 'users#create'
+
   resources :users
   resources :dreams 
   resources :feelings
   resources :dream_journals do
-    resources :dreams, :feelings 
+    resources :dreams
   end
   get '/dream_journals/most_recent' => 'dream_journals#most_recent'
   #7 RESTful routes = resources

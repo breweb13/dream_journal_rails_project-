@@ -24,15 +24,14 @@ ActiveRecord::Schema.define(version: 2021_02_06_041612) do
     t.datetime "date"
     t.text "description"
     t.text "reflections"
-    t.integer "dream_journals_id"
+    t.integer "dream_journal_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "feelings", force: :cascade do |t|
-    t.string "type"
-    t.string "description"
-    t.integer "dream_journals_id"
+    t.string "emotion"
+    t.integer "dream_journal_id", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -41,6 +40,8 @@ ActiveRecord::Schema.define(version: 2021_02_06_041612) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.string "provider"
+    t.string "uid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -9,11 +9,9 @@ class DreamsController < ApplicationController
   end
 
   def new
-    if params[:dream_journal_id] && @dreamjournal = DreamJournal.find(params[:dream_journal_id])
-      @dream = Dream.new(dream_journal_id: params[:dream_journal_id])
-   else
+     @dreamjournal = DreamJournal.find_by_id(params[:dream_journal_id])
       @dream = Dream.new
-   end
+   
   end
 
   def show
@@ -25,12 +23,15 @@ class DreamsController < ApplicationController
   end
 
   def create
+    @dreamjournal = DreamJournal.find(params[:dream][:dream_journal_id])
     @dream =Dream.new(dreams_params)
-        if params[:dream_journal_id]
-            @dream = DreamJournal.find(params[:dream_journal_id])
-        end
+
+    #binding.pry
+        #if params[:dream][:dream_journals_id]
+            
+        #end
         if @dream.save
-          binding.pry
+    
             redirect_to dreams_path
         else
              render :new
@@ -51,7 +52,7 @@ class DreamsController < ApplicationController
     end
   end
 
-  def destoy
+  def destroy
     find_dream
     @dream.destroy
     redirect_to dreams_path
@@ -60,7 +61,7 @@ class DreamsController < ApplicationController
   private
 
   def dreams_params
-    params.require(:dream).permit(:name, :date, :description, :reflections, :dream_journals_id, dream_journal_attributes: [:title, :user_id])
+    params.require(:dream).permit(:name, :date, :description, :reflections, :dream_journal_id)
   end
 
   def find_dream

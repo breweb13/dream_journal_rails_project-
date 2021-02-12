@@ -60,7 +60,7 @@ end
   private
   
   def dream_journal_params
-    params.require(:dream_journal).permit(:title, :user_id , dreams_attributes: [:name, :date, :description, :reflections], feelings_attributes: [:type, :description])
+    params.require(:dream_journal).permit(:title, :user_id )
   end
 
   def find_dreamjournal
