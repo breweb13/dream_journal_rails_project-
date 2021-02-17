@@ -3,6 +3,9 @@
 
 <ul>
   <% @dreams.each do |dream| %> <!-- /dreams/:id -->
-    <li><%= link_to dream.name, dream_path(dream) %></li>
+    <li><%= link_to dream.name, dream_journal_dream_path(@dreamjournal,dream) %></li>
+
   <% end %>
 </ul>
+
+<%= link_to "Create Dream",new_dream_journal_dream_path %>

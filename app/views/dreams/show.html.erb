@@ -6,6 +6,6 @@
 <p>Date: <%= @dream.date %></p>
 
 
-<%= link_to "Edit", edit_dream_path(@dream) %>
+<%= link_to "Edit", edit_dream_journal_dream_path(@dreamjournal,@dream) %>
 
-<%= link_to "Delete", dream_path(@dream), method: :delete %>
+<%= link_to "Delete", dream_journal_dream_path(@dreamjournal,@dream), method: :delete %>
