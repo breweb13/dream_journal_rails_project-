@@ -1,6 +1,6 @@
 <h1> Edit Dream </h1>
 
-<%= form_for @dream do |f| %>
+<%= form_for [@dreamjournal, @dream] do |f| %>
   <div>
     <%= f.label :name %>
     <%= f.text_field :name %>
