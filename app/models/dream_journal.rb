@@ -1,6 +1,6 @@
 class DreamJournal < ApplicationRecord
   has_many :dreams
-  has_many :feelings
+  has_many :feelings, through: :dreams
   belongs_to :user
   validates :title, presence: true 
  

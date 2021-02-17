@@ -61,7 +61,7 @@ class DreamsController < ApplicationController
   private
 
   def dreams_params
-    params.require(:dream).permit(:name, :date, :description, :reflections, :dream_journal_id)
+    params.require(:dream).permit(:name, :date, :description, :reflections, :dream_journal_id, :feeling_id)
   end
 
   def find_dream

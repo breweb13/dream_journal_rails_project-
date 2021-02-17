@@ -1,4 +1,6 @@
 class Feeling < ApplicationRecord
-  belongs_to :dream_journal, optional: true
+  has_many :dreams
+  has_many :dream_journals, through: :dreams
+
   
 end
