@@ -25,13 +25,13 @@ ActiveRecord::Schema.define(version: 2021_02_06_041612) do
     t.text "description"
     t.text "reflections"
     t.integer "dream_journal_id"
+    t.integer "feeling_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "feelings", force: :cascade do |t|
     t.string "emotion"
-    t.integer "dream_journal_id", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

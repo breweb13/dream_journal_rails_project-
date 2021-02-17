@@ -14,6 +14,8 @@
     <%= f.label :date %>
     <%= f.date_field :date %>
 
+    <%= f.collection_select :feeling_id, Feeling.all, :id, :emotion, include_blank: "Please select Feeling" %>
+
 <h3> Select a dreamjournal: </h3>
 <%= f.collection_select :dream_journal_id, DreamJournal.all, :id, :title, include_blank: "Select From List" %>
 

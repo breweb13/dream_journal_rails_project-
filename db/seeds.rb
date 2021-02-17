@@ -8,4 +8,3 @@
 
 
 @dreams = Feeling.create([{emotion: 'Happy'}, {emotion: 'Scared'}, {emotion: 'Angry'}])
-@dreams.each {|d| d.save} 
