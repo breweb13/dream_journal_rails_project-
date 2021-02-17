@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-    #before_action :redirect_if_logged_in
    
     def welcome
     end
@@ -19,6 +18,7 @@ class SessionsController < ApplicationController
 
     def create 
         #if they are logging in the "normal" way
+        #binding.pry
         u = User.find_by_email(params[:user][:email])
         if u && u.authenticate(params[:user][:password])
             session[:user_id] = u.id

@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
 
   resources :users
-  resources :dreams 
   resources :feelings
   resources :dream_journals do
     resources :dreams

@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  before_action :redirect_if_not_logged_in , except: [:new, :create]
+  before_action :redirect_if_logged_in , only: [:new, :create]
+
+ def index
+  @users = User.all
+ end 
 
   def new
     @user = User.new
@@ -9,8 +15,10 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       redirect_to user_path(@user)
+      flash[:notice] = "You have succesfully signed up!" 
     else
       render :new
+      flash[:error] = @user.errors.full_messages
     end
   end
 

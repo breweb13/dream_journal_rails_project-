@@ -1,4 +1,5 @@
 class FeelingsController < ApplicationController
+  before_action :redirect_if_not_logged_in
   
   def index
     @feelings = Feeling.all
