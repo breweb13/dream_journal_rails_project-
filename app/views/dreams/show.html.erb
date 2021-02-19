@@ -1,5 +1,8 @@
 
 <h1><%= @dream.name %></h1>
+
+<% if current_user.id == @dream.dream_journal.user_id%>
+
 <p>Description: <%= @dream.description %></p>
 <p>Reflections: <%= @dream.reflections %></p>
 <p>Emotion: <%= @dream.feeling.emotion %></p>
@@ -9,3 +12,5 @@
 <%= link_to "Edit", edit_dream_journal_dream_path(@dreamjournal,@dream) %>
 
 <%= link_to "Delete", dream_journal_dream_path(@dreamjournal,@dream), method: :delete %>
+
+<% end %>

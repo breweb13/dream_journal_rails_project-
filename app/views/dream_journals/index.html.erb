@@ -4,3 +4,7 @@
 <% @dreamjournals.each do |dreamjournal| %>
 <%= link_to dreamjournal.title, dream_journal_dreams_path(dreamjournal)%> 
 <% end %>
+
+<div class="text-center" >
+<%= link_to "See recent Journals!", dream_journals_most_recent_path, class: "btn btn-outline-success" %>
+</div>

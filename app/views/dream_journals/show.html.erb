@@ -1,8 +1,10 @@
 
 <h1><%= @dreamjournal.title %></h1>
 
-
+<% if current_user.id == @dreamjournal.user_id%>
 
 <%= link_to "Edit", edit_dream_journal_path(@dreamjournal) %>
 
 <%= link_to "Delete", dream_journals_path(@dreamjournal), method: 'DELETE' %>
+
+<% end %>
