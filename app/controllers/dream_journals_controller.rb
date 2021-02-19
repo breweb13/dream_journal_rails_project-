@@ -13,6 +13,11 @@ class DreamJournalsController < ApplicationController
     end
   end
 
+  def most_recent
+    @dreamjournal = DreamJournal.most_recent_dream_journal
+    render :index
+  end
+
   def new
     @dreamjournal = DreamJournal.new
   end
@@ -20,7 +25,6 @@ class DreamJournalsController < ApplicationController
   def create
     params[:dream_journal][:user_id] = current_user.id
     @dreamjournal = DreamJournal.new(dream_journal_params)
-
     if @dreamjournal.save
       redirect_to dream_journal_path(@dreamjournal)
     else 
@@ -42,10 +46,6 @@ class DreamJournalsController < ApplicationController
     end
   end
 
-  def most_recent
-    @dreamjournals = DreamJournal.most_recent_dream_journal
-    render :index
-end
 
   def destroy
     find_dreamjournal
