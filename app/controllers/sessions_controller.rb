@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
             session[:user_id] = u.id
             redirect_to user_path(u)
         else
+            flash[:message] = "Your credentials are invalid! Please try again."
             redirect_to '/login'
         end
     end

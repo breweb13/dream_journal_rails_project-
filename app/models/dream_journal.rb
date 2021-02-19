@@ -6,6 +6,6 @@ class DreamJournal < ApplicationRecord
  
 
   def self.most_recent_dream_journal
-    DreamJournal.order(created_at: :desc)
+    DreamJournal.order(created_at: :desc).limit(2)
   end
 end

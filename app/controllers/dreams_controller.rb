@@ -9,11 +9,6 @@ class DreamsController < ApplicationController
     #binding.pry 
   end
 
-  def new
-      @dream = Dream.new
-   
-  end
-
   def show
     if !find_dream
       redirect_to dream_journal_dreams_path(@dreamjournal)
@@ -22,15 +17,15 @@ class DreamsController < ApplicationController
     end
   end
 
+  def new
+    @dream = Dream.new
+ end
+
+  
+
   def create
     @dream =Dream.new(dreams_params)
-
-    #binding.pry
-        #if params[:dream][:dream_journals_id]
-            
-        #end
         if @dream.save
-    
             redirect_to dream_journal_dream_path(@dreamjournal,@dream)
         else
              render :new
