@@ -1,7 +1,7 @@
 class DreamsController < ApplicationController
   before_action :redirect_if_not_logged_in
   before_action :find_dream_journal
-  before_action :find_dream, only: [:show,:destroy]
+  before_action :redirect_if_not_dreamjournal_owner, only: [:destroy, :edit, :update]
 
 
   def index

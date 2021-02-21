@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
   root to: 'sessions#welcome'
+  #both get/post patch/delete
+  match '/auth/:google_oauth2/callback' => 'sessions#google', via:[:get,:post] #controller:method
   
 
   get '/login', to: 'sessions#new'
@@ -12,16 +14,17 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new', as: "signup"
   post '/signup', to: 'users#create'
 
-  resources :users
+  get '/dream_journals/most_recent' => 'dream_journals#most_recent'
+  #7 RESTful routes = resources
+
+  resources :users, except: [:destroy, :index]
   resources :feelings
   resources :dream_journals do
     resources :dreams
   end
-  get '/dream_journals/most_recent' => 'dream_journals#most_recent'
-  #7 RESTful routes = resources
+ 
   
-  #both get/post patch/delete
-  match '/auth/:google_oauth2/callback' => 'sessions#google', via:[:get,:post] #controller:method
+  
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
