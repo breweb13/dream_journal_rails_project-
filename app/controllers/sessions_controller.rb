@@ -1,13 +1,11 @@
 class SessionsController < ApplicationController
-   
+    before_action :redirect_if_logged_in, except: [:destroy]
+
     def welcome
     end
 
     def new 
         @user = User.new
-    end
-
-    def google
     end
 
 

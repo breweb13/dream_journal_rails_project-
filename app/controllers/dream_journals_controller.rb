@@ -66,6 +66,10 @@ class DreamJournalsController < ApplicationController
 
   def find_dreamjournal
     @dreamjournal = DreamJournal.find_by_id(params[:id])
-end
+  end
+
+  def find_dream
+  @dream = Dream.find_by_id(params[:id])
+  end
 
 end

@@ -1,7 +1,7 @@
 class DreamsController < ApplicationController
   before_action :redirect_if_not_logged_in
   before_action :find_dream_journal
-  before_action :find_dream, only: [:show, :destroy]
+  before_action :find_dream, only: [:show,:destroy]
 
 
   def index
@@ -59,10 +59,18 @@ class DreamsController < ApplicationController
 
   def find_dream
     @dream = Dream.find_by_id(params[:id])
-end
+  end
 
 def find_dream_journal
   @dreamjournal = DreamJournal.find_by_id(params[:dream_journal_id])
+end
+
+
+def redirect_if_not_dreamjournal_owner
+  find_dream
+  find_dream_journal
+  return redirect_to dream_journal_dream_path unless @dreamjournal
+  redirect_to dream_journal_dream_path unless current_user.id == @dreamjournal.user_id
 end
 
 end
