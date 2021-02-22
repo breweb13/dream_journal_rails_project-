@@ -1,6 +1,6 @@
 class DreamJournalsController < ApplicationController
   before_action :redirect_if_not_logged_in
-  before_action :find_dream_journal
+  before_action :find_dream_journal, only: [:destroy, :edit, :update]
   before_action :redirect_if_not_dreamjournal_owner, only: [:destroy, :edit, :update]
   
   def index
@@ -35,11 +35,9 @@ class DreamJournalsController < ApplicationController
   end
 
   def edit
-    find_dream_journal
   end
 
   def update
-    find_dream_journal
     @dreamjournal.update(dream_journal_params)
     if @dreamjournal.valid?
       redirect_to dream_journal_path(@dreamjournal,@dream)
@@ -50,7 +48,6 @@ class DreamJournalsController < ApplicationController
 
 
   def destroy
-    find_dream_journal
         if current_user.id != @dreamjournal.user_id
             redirect_to dream_journal_path(@dreamjournal,@dream)
         else 
