@@ -18,9 +18,7 @@ To connect to a local host, please type the following command:
 
 **rails s**
 
-When it has confirmed you are connected to a local host, please visit your web browser and click here to interact with the program.
-
-You may now create an account, login with your own credentials or with the 'login with google' option, and to start tracking your dreams.
+When it has confirmed you are connected to a local host, You may now create an account, login with your own credentials or with the 'login with google' option, and to start tracking your dreams.
 
 
 ## Contributing
