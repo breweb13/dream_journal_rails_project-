@@ -9,7 +9,7 @@ To use this application please fork and clone this repository and open in your m
 **bundle install**
 This will install neccessary gems to run the program.
 
-For database migration please type the following into terminal shell:
+***For database migration please type the following into terminal shell:***
 
 **rails db:migrate**
 To connect to a local host, please type the following command:
