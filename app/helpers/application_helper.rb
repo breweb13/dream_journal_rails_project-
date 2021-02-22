@@ -9,10 +9,6 @@ module ApplicationHelper
     !!current_user
   end
 
-  def authorized_to_edit?(dream)
-    dream.user == current_user
-  end
-
   def redirect_if_not_logged_in
     redirect_to '/login' unless logged_in
   end

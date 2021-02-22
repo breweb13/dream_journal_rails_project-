@@ -40,7 +40,7 @@ class DreamsController < ApplicationController
     find_dream
     @dream.update(dreams_params)
     if @dream.valid?
-      redirect_to dream_journal_dream_path
+      redirect_to dream_journal_dream_path(@dreamjournal,@dream)
     else
       render :edit
     end
@@ -48,7 +48,7 @@ class DreamsController < ApplicationController
 
   def destroy
     @dream.destroy
-    redirect_to dream_journal_dream_path
+    redirect_to dream_journal_dream_path(@dreamjournal,@dream)
   end
 
   private
@@ -69,8 +69,8 @@ end
 def redirect_if_not_dreamjournal_owner
   find_dream
   find_dream_journal
-  return redirect_to dream_journal_dream_path unless @dreamjournal
-  redirect_to dream_journal_dream_path unless current_user.id == @dreamjournal.user_id
+  return redirect_to dream_journal_dream_path(@dreamjournal,@dream) unless @dreamjournal
+  redirect_to dream_journal_dream_path(@dreamjournal,@dream) unless current_user.id == @dreamjournal.user_id
 end
 
 end
