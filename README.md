@@ -1,4 +1,4 @@
-# Welcome to the Jospeh Journal
+# Welcome to the Joseph Journal
 J Journal is a web application built with Rails for my Phase Three Project with Flatiron school. Users can create their own Dream Journals to track and organize their dreams. 
 
 ## To get started
