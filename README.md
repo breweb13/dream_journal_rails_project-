@@ -7,7 +7,7 @@ To use this application please fork and clone this repository and open in your m
 ## In your terminal shell type the following:
 
 **bundle install**
-This will install neccessary gems to run the program.***
+This will install neccessary gems to run the program.
 
 For database migration please type the following into terminal shell:
 
