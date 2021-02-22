@@ -1,6 +1,6 @@
 
-<h1>Log in</h1>
-
+<h1 style= "text-align:center">Log in</h1>
+<div class="container", style= "text-align:center" >
 <%= form_for(@user, url: '/login') do |f|%>
     <%= f.label :email %>
     <%= f.email_field :email %>
@@ -9,5 +9,5 @@
     <%= f.password_field :password %>
     <br><br>
  <%= f.submit "Log In"%>
- 
+</div>
 <% end %>

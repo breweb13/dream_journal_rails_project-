@@ -1,9 +1,9 @@
   
-<h1>List Dreams</h1>
+<h1> Community Dreams</h1>
 
 <ul>
   <% @dreams.each do |dream| %> <!-- /dreams/:id -->
-    <li><%= link_to dream.name, dream_journal_dream_path(@dreamjournal,dream) %></li>
+    <li><%= link_to dream.name, dream_journal_dream_path(@dreamjournal,dream)%></li>
 
   <% end %>
 </ul>

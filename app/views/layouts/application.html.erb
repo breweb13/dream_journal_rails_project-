@@ -8,10 +8,14 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- CSS only -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   </head>
 
-  <body>
-  <nav>
+  <body class= "container-fluid" >
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+   <a class="navbar-brand" href="#">Joseph Journal</a>
   <ul>
   <% if logged_in %>
   <li><%= link_to("Home", root_path)%></li>
@@ -30,6 +34,7 @@
  
   
   </ul>
+  </div>
   </nav>
   <div><%= flash[:message] %></div>
     <%= yield %>

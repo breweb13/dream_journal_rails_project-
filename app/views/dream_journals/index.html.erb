@@ -1,9 +1,12 @@
-<h1> Show all Dream Journals </h1>
+<br>
+<br>
+<h1 style= "text-align:center"> Community Journals </h1>
 
-
+<div class="container-fluid", style= "text-align:center">
 <% @dreamjournals.each do |dreamjournal| %>
 <%= link_to dreamjournal.title, dream_journal_dreams_path(dreamjournal)%> 
 <% end %>
 
 
 <%= link_to "See recent Journals!", dream_journals_most_recent_path %>
+</div>
