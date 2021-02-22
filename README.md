@@ -1,25 +1,28 @@
-# README
+Welcome to the Jospeh Journal
+J Journal is a web application built with Rails for my Phase Three Project with Flatiron school. Users can create their own Dream Journals to track and organize their dreams. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To get started
+To use this application please fork and clone this repository and open in your machine's text editor.
 
-Things you may want to cover:
+In your terminal shell type the following:
 
-* Ruby version
+bundle install
+This will install neccessary gems to run the program.
 
-* System dependencies
+For database migration please type the following into terminal shell:
 
-* Configuration
+rails db:migrate
+To connect to a local host, please type the following command:
 
-* Database creation
+rails s
+When it has confirmed you are connected to a local host, please visit your web browser and click here to interact with the program.
 
-* Database initialization
+You may now create an account, login with your own credentials or with the 'login with google' option, and start sharing all the sorcery in your realm!
 
-* How to run the test suite
+Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* Services (job queues, cache servers, search engines, etc.)
+Please make sure to update tests as appropriate.
 
-* Deployment instructions
-
-* ...
-# dream_journal_rails_project-
+License
+MIT
