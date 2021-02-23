@@ -1,32 +1,51 @@
 <%= render partial: "layouts/error", locals: {object: @dream}  %>
 
-<%= form_for [@dreamjournal, @dream] do |f| %>
- 
-    <%= f.label :name %>
-    <%= f.text_field :name %>
 
+<div class= "container">
+<div class="card text-center mt-5">
+ 
+  
+  <div class="card-body">
+  <h3 class="card-title"> <%=form_name%> </h3>
+ <%= form_for [@dreamjournal, @dream] do |f| %>
+  <div class="m-3">
+      <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+ 
+  <div class="m-3">
+  
     <%= f.label :description %>
     <%= f.text_field :description %>
-
-    <%= f.label :reflections %>
+  </div>
+  <div class="m-3">
+   <%= f.label :reflections %>
     <%= f.text_field :reflections %>
+  </div>
 
-
-    <%= f.label :date %>
+  <div class="m-3">
+   <%= f.label :date %>
     <%= f.date_field :date %>
-
-    <%= f.collection_select :feeling_id, Feeling.all, :id, :emotion, include_blank: "Please select Feeling" %>
-
-<h3> Select a dreamjournal: </h3>
-<%= f.collection_select :dream_journal_id, DreamJournal.all, :id, :title, include_blank: "Select From List" %>
-
-  <%= f.submit "New Dream" %>
-
- 
+  </div >
+  <div class="m-3">
+  <%= f.collection_select :feeling_id, Feeling.all, :id, :emotion, include_blank: "Please select Feeling" %>
+  </div>
+   <div class="m-3">
+   <h2> Select a dreamjournal: </h2>
+ <%= f.collection_select :dream_journal_id, DreamJournal.where(user_id: current_user.id), :id, :title, include_blank: "Select From List" %>
+  </div>
+  <%= f.submit "New Dream", class:"btn btn-primary"%>
+</div>
 <% end %>
+  
+</div>
+</div>
 <br><br>
  <script>
   $(document).ready(function(){
     $('select').formSelect();
   });
  </script>
+
+
+ 

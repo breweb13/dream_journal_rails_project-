@@ -1,13 +1,12 @@
 class DreamsController < ApplicationController
   before_action :redirect_if_not_logged_in
+  before_action :find_user_dreams, only: [:index]
   before_action :find_dream_journal
   before_action :redirect_if_not_dreamjournal_owner, only: [:destroy, :edit, :update]
   
 
 
   def index
-    @dreams = Dream.all
-    #binding.pry 
   end
 
   def show
@@ -64,6 +63,10 @@ class DreamsController < ApplicationController
 
 def find_dream_journal
   @dreamjournal = DreamJournal.find_by_id(params[:dream_journal_id])
+end
+
+def find_user_dreams
+  @dreams = Dream.where(dream_journal_id: params[:dream_journal_id])
 end
 
 

@@ -1,13 +1,30 @@
 
-<h1 style= "text-align:center">Log in</h1>
-<div class="container", style= "text-align:center" >
-<%= form_for(@user, url: '/login') do |f|%>
+
+<div class= "container">
+<div class="card text-center mt-5">
+ 
+  
+  <div class="card-body">
+  <h3 class="card-title">Log In</h3>
+    <%= form_for(@user, url: '/login') do |f|%>
+
+  <div class="m-3">
     <%= f.label :email %>
     <%= f.email_field :email %>
-    <br><br>
-    <%= f.label :password %>
+    <div id="emailHelp" class="form-text"></div>
+  </div>
+  <div class="m-3">
+  <%= f.label :password %>
     <%= f.password_field :password %>
-    <br><br>
- <%= f.submit "Log In"%>
+  </div>
+
+  <%= f.submit "Log In", class:"btn btn-primary"%>
 </div>
 <% end %>
+  
+  <div class="card-footer text-muted">
+    &copy;  Joseph Journal 2021
+  </div>
+</div>
+</div>
+
