@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new', as: "signup"
   post '/signup', to: 'users#create'
 
-  get '/dream_journals/most_recent' => 'dream_journals#most_recent'
+  get '/dream_journals/most_recent' => 'dream_journals#most_recent' #explicit route
+  
   #7 RESTful routes = resources
-
   resources :users, except: [:destroy, :index]
   resources :feelings
   resources :dream_journals do

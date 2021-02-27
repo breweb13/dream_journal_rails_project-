@@ -11,7 +11,7 @@ class DreamsController < ApplicationController
 
   def show
     if !find_dream
-      redirect_to dream_journal_dreams_path(@dreamjournal)
+      redirect_to dream_journal_dreams_path(@dreamjournal,@dream)
     else
       find_dream
     end
@@ -22,7 +22,6 @@ class DreamsController < ApplicationController
  end
 
   
-
   def create
     @dream =Dream.new(dreams_params)
         if @dream.save
